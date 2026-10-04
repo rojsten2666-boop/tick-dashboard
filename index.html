@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tick Dashboard</title>
+    <meta
+      name="description"
+      content="Real-time market tick dashboard for GitHub Pages"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="market-overview">
+          <div class="symbol-block">
+            <span class="eyebrow">Symbol</span>
+            <h1 id="symbolLabel">BTCUSD</h1>
+          </div>
+          <div class="status-pill" id="statusPill">
+            <span class="status-dot"></span>
+            <span id="connectionStatus">Live</span>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <button id="toggleFeed" class="secondary-button" type="button">
+            Pause feed
+          </button>
+        </div>
+      </header>
+
+      <main class="dashboard-grid">
+        <section class="panel panel--wide">
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">Market</p>
+              <h2 id="marketName">Bitcoin / USD</h2>
+            </div>
+            <div class="price-stack">
+              <span class="price-label">Last</span>
+              <strong id="lastPrice">$0.00</strong>
+            </div>
+          </div>
+
+          <div class="metric-row">
+            <div class="metric-card accent">
+              <span>Change</span>
+              <strong id="metricChange">+0.00%</strong>
+            </div>
+            <div class="metric-card">
+              <span>High</span>
+              <strong id="metricHigh">$0.00</strong>
+            </div>
+            <div class="metric-card">
+              <span>Low</span>
+              <strong id="metricLow">$0.00</strong>
+            </div>
+            <div class="metric-card">
+              <span>Spread</span>
+              <strong id="metricSpread">$0.00</strong>
+            </div>
+            <div class="metric-card">
+              <span>Volume</span>
+              <strong id="metricVolume">0</strong>
+            </div>
+          </div>
+
+          <div class="chart-wrap">
+            <canvas id="priceChart" width="980" height="260" aria-label="Price chart"></canvas>
+          </div>
+        </section>
+
+        <aside class="panel panel--side">
+          <div class="panel-heading compact">
+            <div>
+              <p class="eyebrow">Snapshot</p>
+              <h2>Quote</h2>
+            </div>
+          </div>
+
+          <dl class="quote-list">
+            <div>
+              <dt>Bid</dt>
+              <dd id="bidValue">$0.00</dd>
+            </div>
+            <div>
+              <dt>Ask</dt>
+              <dd id="askValue">$0.00</dd>
+            </div>
+            <div>
+              <dt>Open</dt>
+              <dd id="openValue">$0.00</dd>
+            </div>
+            <div>
+              <dt>Prev Close</dt>
+              <dd id="previousCloseValue">$0.00</dd>
+            </div>
+            <div>
+              <dt>Updated</dt>
+              <dd id="lastUpdatedValue">--:--:--</dd>
+            </div>
+          </dl>
+        </aside>
+
+        <section class="panel panel--wide">
+          <div class="panel-heading compact">
+            <div>
+              <p class="eyebrow">Feed</p>
+              <h2>Recent ticks</h2>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Price</th>
+                  <th>Bid</th>
+                  <th>Ask</th>
+                  <th>Volume</th>
+                </tr>
+              </thead>
+              <tbody id="tickTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
