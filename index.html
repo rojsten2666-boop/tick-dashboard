@@ -15,8 +15,14 @@
       <header class="topbar">
         <div class="market-overview">
           <div class="symbol-block">
-            <span class="eyebrow">Symbol</span>
-            <h1 id="symbolLabel">BTCUSD</h1>
+            <label class="eyebrow" for="symbolSelect">Symbol</label>
+            <select id="symbolSelect" aria-label="Select market symbol">
+              <option value="BTCUSD">BTCUSD</option>
+              <option value="ETHUSD">ETHUSD</option>
+              <option value="EURUSD">EURUSD</option>
+              <option value="XAUUSD">XAUUSD</option>
+              <option value="AAPL">AAPL</option>
+            </select>
           </div>
           <div class="status-pill" id="statusPill">
             <span class="status-dot"></span>
@@ -25,7 +31,10 @@
         </div>
 
         <div class="toolbar">
-          <button id="toggleFeed" class="secondary-button" type="button">
+          <button id="refreshData" class="secondary-button" type="button">
+            Refresh
+          </button>
+          <button id="toggleFeed" class="secondary-button accent" type="button">
             Pause feed
           </button>
         </div>
@@ -102,6 +111,14 @@
               <dd id="lastUpdatedValue">--:--:--</dd>
             </div>
           </dl>
+
+          <div class="mini-panel">
+            <div class="mini-header">
+              <p class="eyebrow">Depth</p>
+              <h3>Order Book</h3>
+            </div>
+            <div id="orderBook" class="order-book"></div>
+          </div>
         </aside>
 
         <section class="panel panel--wide">
